@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perezoso para Sofía</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #e6f4ea;
+      color: #2d2d2d;
+    }
+    .slide {
+      display: none;
+      height: 100vh;
+      width: 100vw;
+      background-size: cover;
+      background-position: center;
+    }
+    .visible {
+      display: block;
+    }
+    .card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 2rem;
+      background-color: #f9f5f0;
+      color: #3d3d3d;
+    }
+    .open-button {
+      background-color: #a3c9a8;
+      color: white;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    .letter {
+      display: none;
+      margin-top: 2rem;
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      max-width: 90%;
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+  <div id="slider">
+    <div class="slide visible" style="background-image: url('1.jpg');"></div>
+    <div class="slide" style="background-image: url('2.jpg');"></div>
+    <div class="slide" style="background-image: url('3.jpg');"></div>
+    <div class="slide" style="background-image: url('4.jpg');"></div>
+    <div class="slide" style="background-image: url('5.jpg');"></div>
+    <div class="slide" style="background-image: url('6.jpg');"></div>
+    <div class="slide" style="background-image: url('7.jpg');"></div>
+    <div class="slide card">
+      <h2>Has llegado al final...</h2>
+      <p>Haz clic en la carta para leerla 📨</p>
+      <button class="open-button" onclick="openLetter()">Abrir carta</button>
+      <div class="letter" id="letter">
+        hace ya un mes desde que empezamos a salir, un mes soportando a la perezosa esta, tendrían que darme un trofeo o al menos una medalla. ya bromas a parte quería escribirte algo bonito, no soy el mejor expresándome, esta es la sexta vez que intento escribirte esta nota, pero queria que supieras lo mucho que te quiero. te quiero muchísimo, y no me cansaré de decírtelo. te quiero, por cómo eres, por la forma en la que siempre consigues sacarme una sonrisa, por estar ahí para mí siempre, por darme la mano aunque siempre las tenga frías, porque eres amable, divertida, mona, lista, dulce y muy cariñosa. eres una chica increíble, y estar contigo me hace muy feliz. y eso, feliz primer mes... ya veremos si te aguanto otro más. (spoiler: sí)
+
+        te quiero mi niña.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function showNextSlide() {
+      slides[slideIndex].classList.remove('visible');
+      slideIndex++;
+      if (slideIndex >= slides.length) {
+        slideIndex = slides.length - 1;
+      }
+      slides[slideIndex].classList.add('visible');
+    }
+
+    setInterval(() => {
+      if (slideIndex < slides.length - 1) {
+        showNextSlide();
+      }
+    }, 3500);
+
+    function openLetter() {
+      document.getElementById('letter').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
